@@ -40,7 +40,7 @@ jobs:
       - name: Setup kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: "v1.28"
+          version: "v1.28.0"
 
       - name: Validate K8s manifests (dry-run)
         run: kubectl apply --dry-run=client -f k8s/
