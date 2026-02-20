@@ -37,10 +37,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: "v1.28.0"
+      - name: Install kubeval
+        run: |
+          curl -L -o /tmp/kubeval.tar.gz https://github.com/instrumenta/kubeval/releases/download/0.16.1/kubeval-linux-amd64.tar.gz
+          tar -xzf /tmp/kubeval.tar.gz -C /tmp
+          sudo mv /tmp/kubeval /usr/local/bin/kubeval
 
-      - name: Validate K8s manifests (dry-run)
-        run: kubectl apply --dry-run=client -f k8s/
+      - name: Validate K8s manifests (kubeval)
+        run: kubeval k8s/*.yaml
