@@ -1,34 +1,54 @@
-# terraform01
+# CloudInfra
 
-Terraform and Kubernetes infrastructure. Multi-cloud friendly; CI/CD via GitHub Actions.
+Infrastructure-as-code lane for AIML Solutions cloud environments, Kubernetes manifests, validation checks, and deployment automation.
+
+## What This Repository Demonstrates
+
+- Terraform module organization and validation workflow
+- Kubernetes deployment/service/config patterns
+- CI/CD readiness with GitHub Actions
+- Multi-cloud conversation surface for AWS, GCP, and Azure
+- Practical DevOps evidence aligned with Kubernetes and AWS platform engineering
 
 ## Structure
 
-- `terraform/` — Terraform modules (e.g. provider config, backends, optional K8s provider).
-- `k8s/` — Kubernetes manifests (deployments, services, configmaps) for deployment.
-- `.github/workflows/` — CI: `terraform validate`, optional `kubectl`/Kustomize validation.
+| Path | Purpose |
+| --- | --- |
+| `terraform/` | Terraform modules, provider config, and backend scaffolding |
+| `k8s/` | Kubernetes manifests for deployment validation |
+| `.github/workflows/` | CI checks such as `terraform validate` and manifest validation |
 
 ## Prerequisites
 
-- [Terraform](https://www.terraform.io/downloads) ≥ 1.x
-- [kubectl](https://kubernetes.io/docs/tasks/tools/) (for local K8s validation)
-- Optional: cloud provider CLI (AWS, GCP, Azure) for remote state/apply
+- Terraform 1.x+
+- `kubectl` for local Kubernetes validation
+- Optional cloud provider CLI for remote state and real applies
 
-## Quick start
+## Quick Start
 
 ```bash
 cd terraform
 terraform init
 terraform validate
-terraform plan   # requires provider config / vars
+terraform plan
 ```
 
-## CI/CD
+For Kubernetes manifest validation:
 
-On push/PR, GitHub Actions runs:
+```bash
+kubectl apply --dry-run=client -f k8s/
+```
 
-- `terraform validate`
-- Optional: K8s manifest validation (e.g. `kubectl apply --dry-run=client -f k8s/`)
+## How It Fits MultiClaw
+
+CloudInfra supports the cloud and platform lane behind MultiClaw. Examples should demonstrate repeatable environments, safe defaults, and validation discipline with generic, reusable infrastructure patterns.
+
+## Next Improvements
+
+- Add an AWS-focused example aligned with CLF-C02 and associate-level study
+- Add Kubernetes examples aligned with CKAD/KCNA practice
+- Add remote state documentation without committing real backend secrets
+- Add CI badge after confirming the workflow name and branch
 
 ## License
 
