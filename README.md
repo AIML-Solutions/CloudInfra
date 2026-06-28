@@ -18,6 +18,17 @@ Infrastructure-as-code lane for AIML Solutions cloud environments, Kubernetes ma
 | `k8s/` | Kubernetes manifests for deployment validation |
 | `.github/workflows/` | CI checks such as `terraform validate` and manifest validation |
 
+## Implementation Status
+
+| Area | Status | Notes |
+| --- | --- | --- |
+| Terraform layout | Active | Reusable module and environment scaffolding is organized under `terraform/` |
+| Kubernetes manifests | Active | Deployment/service/config examples live under `k8s/` |
+| Validation workflow | Active | GitHub Actions workflow is present for infrastructure checks |
+| Cloud applies | Scaffold | Designed for safe local validation first; real remote-state setup should be added per environment |
+
+CloudInfra is a reusable platform-engineering pattern repo. It is intended to demonstrate infrastructure validation discipline without embedding account-specific backend configuration.
+
 ## Prerequisites
 
 - Terraform 1.x+
@@ -52,4 +63,4 @@ CloudInfra supports the cloud and platform lane behind MultiClaw. Examples shoul
 
 ## License
 
-MIT.
+MIT — see [LICENSE](LICENSE).
