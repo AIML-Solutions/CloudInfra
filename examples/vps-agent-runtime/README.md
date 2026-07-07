@@ -29,3 +29,5 @@ This example documents a public-safe target shape for a hardened VPS-hosted agen
 - agent/tool permission notes
 - recovery procedure
 - support window or maintenance plan
+
+See [`HANDOFF-CHECKLIST.md`](HANDOFF-CHECKLIST.md) for a public-safe delivery checklist.
