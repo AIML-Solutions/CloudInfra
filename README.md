@@ -24,6 +24,7 @@ CloudInfra is intentionally local-first: it demonstrates platform-engineering di
 | --- | --- |
 | `terraform/` | Terraform modules, provider config, and backend scaffolding |
 | `k8s/` | Kubernetes manifests for deployment validation |
+| `scripts/validate.sh` | local validation entry point with Terraform/kubectl fallbacks |
 | `examples/quanttools-local/` | local-first data-validation worker deployment pattern |
 | `examples/vps-agent-runtime/` | public-safe VPS agent runtime checklist |
 | `examples/mac-mini-agent-runtime/` | local-first Mac mini agent runtime pattern |
@@ -54,6 +55,16 @@ CloudInfra is a reusable platform-engineering pattern repo. It is intended to de
 - Optional cloud provider CLI for remote state and real applies
 
 ## Quick Start
+
+Run the local validation entry point first:
+
+```bash
+bash scripts/validate.sh
+```
+
+The script runs Terraform validation when `terraform` is installed and Kubernetes dry-runs when `kubectl` is installed. If `kubectl` is unavailable, it still checks manifest structure with a lightweight Python fallback.
+
+For manual Terraform validation:
 
 ```bash
 cd terraform
