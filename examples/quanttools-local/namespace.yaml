@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: quanttools-local
+  labels:
+    app.kubernetes.io/name: quanttools
+    app.kubernetes.io/part-of: aiml-solutions
+    aiml-solutions.com/environment: local
